@@ -10,3 +10,7 @@ Image Classifying Web App
 - Ensure secure image uploads and implement measures to prevent common security vulnerabilities, such as SQL injection or cross-site scripting
 - Make the web application responsive to different screen sizes and devices
 - Deploy the Django application using platforms like Heroku or AWS, and ensure it's accessible online
+
+Tools:
+Django - Python
+Firebase
