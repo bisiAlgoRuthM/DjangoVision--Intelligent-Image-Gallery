@@ -1,0 +1,12 @@
+Image Classifying Web App 
+
+- User Authentication system to enable users have personalized accounts
+- Upload Images and be able to manage them throgh deleting, editing and categorizing 
+- Dynamic Image Gallery that organises by user category(Private/Public) or tags(user generated)
+- Integrate a pre-trained machine learning model for image recognition (you can use popular libraries like TensorFlow)
+- Automatically categorize or tag uploaded images using the model
+- Implement a search functionality that allows users to find images based on keywords or tags
+- Allow users to like, comment on, or share images and implement a notification system to alert users of activity on their images
+- Ensure secure image uploads and implement measures to prevent common security vulnerabilities, such as SQL injection or cross-site scripting
+- Make the web application responsive to different screen sizes and devices
+- Deploy the Django application using platforms like Heroku or AWS, and ensure it's accessible online
