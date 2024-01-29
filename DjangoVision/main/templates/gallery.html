@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Image Gallery</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'gallery.css' %}">
+</head>
+<body>
+    <h2>My Photos</h2>
+
+    {% if images %}
+        <div class="image-gallery">
+            {% for key, image in images.items %}
+                <div class="image-item">
+                    <img src="{{ image.image_url }}" alt="{{ image.filename }}">
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No images found in the gallery.</p>
+    {% endif %}
+</body>
+</html>

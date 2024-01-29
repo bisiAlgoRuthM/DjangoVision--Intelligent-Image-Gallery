@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Detail</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'path/to/styles.css' %}">
+</head>
+<body>
+    {% if image_details %}
+        <h2>Image Detail</h2>
+        <img src="{{ image_details.image_url }}" alt="{{ image_details.filename }}">
+        <p>Description: {{ image_details.description }}</p>
+
+        <h3>Tags:</h3>
+        <ul>
+            {% for tag in image_details.tags %}
+                <li>{{ tag }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Add form to rename the image in memory -->
+        <form method="post" action="{% url 'rename_image' image_details.filename %}">
+            {% csrf_token %}
+            <label for="new_filename">New Filename:</label>
+            <input type="text" name="new_filename" required>
+            <button type="submit">Rename Image</button>
+        </form>
+
+    {% else %}
+        <p>No details found for the image.</p>
+    {% endif %}
+</body>
+</html>

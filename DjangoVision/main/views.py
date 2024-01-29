@@ -41,13 +41,23 @@ def upload(request):
 
                 database.child('uploaded_images').push({
                     'filename' : filename,
-                    'image_url': image_url
+                    'image_url': image_url,
+                    'tags': list(),
+                    'description': ''
                 })
                 return JsonResponse({'success': True, 'message': 'Image upload successful!'})
             else:
                 return JsonResponse({'success': False, 'message': 'No image file provided, Try again!'})
     return render(request, 'upload.html')
-        
+
+def gallery(request):
+    if request.method == "GET":
+        images = database.child('uploaded_images').get().val() 
+        return render(request, 'gallery.html', {'images': images})       
+    
+def gallery_detail(request, image_id):
+    image_details = database.child('uploaded_images').child(image_id).get().val()
+    return render(request, 'gallery_detail.html', {'image_details' : image_details})
 
 
 
