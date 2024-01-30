@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_protect
 from django.http import JsonResponse
+from django.contrib import messages
 import pyrebase
 import uuid
 
@@ -61,12 +63,25 @@ def gallery_detail(request, image_id):
 
 
 
-def signIn(request):
+def login(request):
 
     return render(request, "login.html")
 
+@csrf_protect
 def postsign(request):
-    return render(request, "welcome.html")
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('pass')
+
+
+        user = authe.sign_in_with_email_and_password(email, password)
+        messages.success(request, 'Login successful')
+        return render(request, "welcome.html",{'e': email})
+
+
+def welcome(request):
+    return render(request, 'welcome.html')
+
 
 def test(request):
     name = database.child('Data').child('Name').get().val()

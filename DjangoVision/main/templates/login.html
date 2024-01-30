@@ -7,12 +7,14 @@
 </head>
 <body>
     <h2>Login</h2>
-    <form action="postsign" method="post">
+    <form action="/postsign/" method="post">
+        {% csrf_token %}
         Email:
         <input type="email" name="email">
         Password:
         <input type="password" name="pass">
-        <input type="submit" value="signIn"Sign In/>
+        <input type="submit" value="SignIn">
     </form>
+    
 </body>
 </html>
