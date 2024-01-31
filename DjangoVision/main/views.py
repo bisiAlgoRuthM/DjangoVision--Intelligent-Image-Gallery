@@ -77,7 +77,8 @@ def postsign(request):
             user = authe.sign_in_with_email_and_password(email, password)
             messages.success(request, 'Login successful')
         except:
-            messages.error(request, 'Invalid credentials')
+            message='Invalid credentials'
+            return redirect('login', {'message':message} )
         return render(request, "welcome.html",{'e': email})
 
 
