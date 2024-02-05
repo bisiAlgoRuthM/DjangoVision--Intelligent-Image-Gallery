@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}">
+    <script src="{% static 'js/gallery.js' %}"></script>
+    <title>Gallery - {{ category }}</title>
+</head>
+    <body>
+        <h1>Gallery - {{ category }}</h1>
+    
+        {% if images %}
+        <div class="gallery" id="gallery">
+            {% for image in images %}
+            <div class="gallery-item">
+                <div class="content"><img src="{{ image.image_url }}" alt="{{ image.filename }}"></div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No images in this category.</p>
+        {% endif %}
+    </body>
+</html>
