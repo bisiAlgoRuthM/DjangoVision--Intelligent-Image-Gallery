@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}">
+    <title>Gallery</title>
+</head>
+    <body>
+        <!-- Header -->
+        <div class="top-tab">
+            <ul class="tab-list">
+                <li class="list-item" onclick="navigateTo('{% url 'index' %}')">
+                    <span><i class="ri-home-line"></i></span>
+                    <span class="tab-text">Home</span>
+                </li>
+                <li class="list-item" onclick="navigateTo('{% url 'gallery' %}')">
+                    <span><i class="ri-gallery-line"></i></span>
+                    <span class="tab-text">Gallery</span>
+                </li>
+                <li class="list-item">
+                    <span><i class="ri-gallery-view-2 tab-active" onclick="navigateTo('{% url 'category' %}')"></i></span>
+                    <span class="tab-text">Category</span>
+                </li>
+            </ul>
+        </div>
+        <!-- Content -->
+
+        <!--
+        {% for category, image in category_images.items %}
+        <div class="container">
+            <a href="{% url 'gallery' category %}">
+                <div class="card">
+                    <img src="{{ image.image_url }}" alt="{{ image.filename }}">
+                    <div class="card__head">{{ category }}</div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+        -->
+    </body>
+</html>
