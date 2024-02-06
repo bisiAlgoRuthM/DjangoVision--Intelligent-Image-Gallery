@@ -1,79 +1,48 @@
 body {
-    margin: 0;
-    min-height: 100vh;
-    background: #000;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  background-color: white;
+}
 
-  .nav {
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-    background-color: var(--color-primary);
-  }
-  .nav *,
-  .nav *::after,
-  .nav *::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  :root {
-    --color-primary: #19adbb;
-    --color-primary-light: rgba(34, 167, 179, 0.2);
-    --color-secondary: #f7f7f7;
-  }
-  
-  .tab-menu {
-    background-color: var(--color-secondary);
-    padding: 1rem 2rem;
-    border-radius: 10rem;
-    box-shadow: 0 0 1rem var(--color-primary-light);
-  }
-  
-  .tab-menu__list {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-  
-  .tab-menu__item {
-    display: flex;
-    gap: .5rem;
-    align-items: center;
-    color: #222;
-    border-radius: 4rem;
-    font-size: 1.2rem;
-    padding: 1rem;
-    cursor: pointer;
-    transition: all .4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-  
-  .tab-menu__icon {
-    transform: translateY(2px);
-  }
-  
-  .tab-menu__text {
-    display: none;
-  }
-  
-  .tab-menu__active {
-    color: var(--color-primary);
-    padding: 1rem 2rem;
-    background-color: var(--color-primary-light);
-  }
-  
-  .tab-menu__active .tab-menu__text {
-    display: block;
-  }
-  
-  
-  .container {
+.top-tab {
+  padding: .5px .6px;
+  align-self: flex-start;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-list {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.list-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: white;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.tab-text {
+  display: none;
+}
+
+.tab-active {
+  color: black;
+  padding: 0.8rem 1rem;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.tab-active .tab-text {
+  display: block;
+  color: black;
+}
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,5 +96,5 @@ body {
         margin-right: 1em;
       }
     }
-  }
+}
   

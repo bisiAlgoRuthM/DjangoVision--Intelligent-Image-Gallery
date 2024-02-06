@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Image </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/upload.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/upload.js' %}"></script>
+    <title>Upload Image</title>
 </head>
 <body>
-    <h2>Upload Image</h2>
-    <form method="post" enctype="multipart/form-data" action="{% url 'upload' %}">
-        {% csrf_token %}
-        <input type="file" name="image" accept="image/*" required>
-        <button type="submit">Upload</button>
-    </form>
+    <div class="container">
+        <h1>Upload Image 
+            <small>preview</small>
+        </h1>
+        <div class="avatar-upload">
+            <div class="avatar-edit">
+                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                <label for="imageUpload"></label>
+            </div>
+            <div class="avatar-preview">
+                <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);"></div>
+            </div>
+        </div>
+        <button id="uploadButton">Upload Image</button>
+    </div>
 </body>
-
-<script>
-
-</script>
 </html>

@@ -12,31 +12,43 @@
     <title>Gallery</title>
 </head>
     <body>
-        <div class="nav">
-            <div class="tab-menu">
-                <ul class="tab-menu__list">
-                    <li class="tab-menu__item tab-menu__active">
-                        <span class="tab-menu__icon"><i class="ri-home-line"></i></span>
-                        <span class="tab-menu__text">Home</span> 
+        <div class="content">
+
+            <div class="top-tab">
+                <ul class="tab-list">
+                    <li class="list-item" onclick="navigateTo('{% url 'index' %}')">
+                        <span><i class="ri-home-line"></i></span>
+                        <span class="tab-text">Home</span>
                     </li>
-                    <li class="tab-menu__item">
-                        <span class="tab-menu__icon"><i class="ri-folder-image-fill"></i></span>
-                        <span class="tab-menu__text">Category</span> 
+                    <li class="list-item tab-active" onclick="navigateTo('{% url 'gallery' %}')">
+                        <span><i class="ri-gallery-line"></i></span>
+                        <span class="tab-text">Gallery</span>
+                    </li>
+                    <li class="list-item">
+                        <span><i class="ri-gallery-view-2" onclick="navigateTo('{% url 'category' %}')"></i></span>
+                        <span class="tab-text">Category</span>
                     </li>
                 </ul>
             </div>
-        </div>
-        <!-- Home Tab -->
-        {% if images %}
-        <div class="gallery" id="gallery">
-            {% for key, image in images.items %}
-            <div class="gallery-item">
-                <div class="content"><img src="{{ image.image_url }}" alt="{{ image.filename }}"></div>
+      
+            <!-- Home Tab -->
+            {% if images %}
+            <div class="gallery" id="gallery">
+                {% for key, image in images.items %}
+                <div class="gallery-item">
+                    <div class="content"><img src="{{ image.image_url }}" alt="{{ image.filename }}"></div>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+            {% else %}
+            <p>Nothing to see Here</p>
+            {% endif %}
         </div>
-        {% else %}
-        <p>Nothing to see Here</p>
-        {% endif %}
+
     </body>
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
 </html>

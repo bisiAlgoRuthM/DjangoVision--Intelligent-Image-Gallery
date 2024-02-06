@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/gallery.js' %}"></script>
     <title>DjangoVision: Intelligent Image Gallery</title>
 </head>
 <body>
-    <h2>Welcome to DjangoVision!</h2>
-    <a href="{% url 'upload' %}">upload </a>
-    <a href="{% url 'gallery' %}">gallery</a> </a>
+
+    <h1>Welcome to DjangoVision!</h1>
+
+    <div class="content">
+        <ul class="tab-list">
+            <li class="list-item" onclick="navigateTo('{% url 'upload' %}')">
+                    <span><i class="ri-upload-2-line"></i></span>
+                    <span class="tab-text">Upload</span>
+            </li>
+            <li class="list-item" onclick="navigateTo('{% url 'gallery' %}')">
+                <span><i class="ri-gallery-line"></i></span>
+                <span class="tab-text">Gallery</span>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
 </body>
 </html>
