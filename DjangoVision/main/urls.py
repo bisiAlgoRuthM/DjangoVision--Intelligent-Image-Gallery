@@ -8,7 +8,6 @@ urlpatterns = [
     path('test/', views.test, name='test'),
     path('upload/', views.upload, name='upload'),
     path('gallery/', views.gallery, name='gallery'),
-    path('category/', views.category, name='category'),
     path('postsign/', views.postsign, name='postsign'),
     path('welcome/', views.welcome, name='welcome')
 ]

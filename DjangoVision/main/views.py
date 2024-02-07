@@ -56,14 +56,12 @@ def gallery(request):
     if request.method == "GET":
         images = database.child('uploaded_images').get().val() 
         return render(request, 'gallery.html', {'images': images})       
-       
     
 def gallery_detail(request, image_id):
     image_details = database.child('uploaded_images').child(image_id).get().val()
     return render(request, 'gallery_detail.html', {'image_details' : image_details})
 
-def category(request):
-    return render(request, 'category.html')
+
 
 def login(request):
 
